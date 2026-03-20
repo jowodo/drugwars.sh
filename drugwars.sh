@@ -400,7 +400,16 @@ MAINMENU () {
 
 GAMEOVER () {
 	SCORE=$(( (BANK+CASH-DEBT)/1000000 )) 
+	echo """$(SP $WID) GAME OVER"""
+	echo
 	echo """YOUR SCORE (ON A SCALE OF 1 TO 100)=$SCORE"""
+	sleep 1 && echo
+	echo """THANKS FOR PLAYING"""
+	sleep 1 && echo
+	echo """REMEMBER: WATCH YOUR BACK."
+	sleep 1 && echo
+	echo """HAVE A NICE DAY!"""
+	sleep 1 && echo
 	exit 
 }
 

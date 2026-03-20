@@ -6,7 +6,12 @@
 
 
 GAMEDATE () { # true to original date, format is MM / DD / YYYY
-    echo $(date --date=" 4 Dec 1983 +"$1" days" +"%m / %d / %y")
+    if [[ "$(uname)" == "Darwin" ]]
+    then 
+        echo $(gdate --date=" 4 Dec 1983 +"$1" days" +"%m / %d / %y")
+    else
+        echo $(date --date=" 4 Dec 1983 +"$1" days" +"%m / %d / %y")
+    fi 
 }
 
 ROLLPRICES () { # this happens at the start of the game and whenever you jet

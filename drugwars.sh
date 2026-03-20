@@ -381,6 +381,11 @@ BANKING () { # use the bank
 MAINMENU () {
     HUD
     SHOWPRICES
+
+     if [[ $DAY = 30 ]]; then
+         GAMEOVER
+     fi
+    
     case $STATE in
         begin )     STATE=normal
                     [[ $DAY = 0 ]] && LOAN
@@ -391,12 +396,13 @@ MAINMENU () {
         normal )    BUYSELLJET
             ;;
     esac
-
-    # if [[ $DAY = 30 ]]; then
-    #     GAMEOVER
-    # fi
 }
 
+GAMEOVER () {
+	SCORE=$(( (BANK+CASH-DEBT)/1000000 )) 
+	echo """YOUR SCORE (ON A SCALE OF 1 TO 100)=$SCORE"""
+	exit 
+}
 
 BUYSELLJET () {
     STATE=normal
